@@ -9,6 +9,9 @@ public class OnButtonPressDtect : MonoBehaviour
     public Transform Qdetector;
     public Transform Wdetector;
     public Transform Edetector;
+
+    [SerializeField] private float offsetX, offsetY;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,15 +24,15 @@ public class OnButtonPressDtect : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q)){
             Debug.Log($" Q position {Qdetector.position}");
-            Instantiate(cude, new Vector3(Qdetector.position.x, Qdetector.position.y + 5f, Qdetector.position.z), Quaternion.identity);
+            Instantiate(cude, new Vector3(Qdetector.position.x + offsetX, Qdetector.position.y + 8f, Qdetector.position.z), Quaternion.identity);
         }
          if (Input.GetKeyDown(KeyCode.W)){
             Debug.Log($" W position {Wdetector.position}");
-            Instantiate(cude, new Vector3(Wdetector.position.x, Wdetector.position.y + 5f, Wdetector.position.z), Quaternion.identity);
+            Instantiate(cude, new Vector3(Wdetector.position.x, Wdetector.position.y + 8f, Wdetector.position.z), Quaternion.identity);
         }
          if (Input.GetKeyDown(KeyCode.E)){
             Debug.Log($" E position {Edetector.position}");
-            Instantiate(cude, new Vector3(Edetector.position.x, Edetector.position.y + 5f, Edetector.position.z), Quaternion.identity);
+            Instantiate(cude, new Vector3(Edetector.position.x, Edetector.position.y + 8f, Edetector.position.z), Quaternion.identity);
         }
         
     }

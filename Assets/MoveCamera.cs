@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MoveCamera : MonoBehaviour
 {
+    public Quaternion startQuaternion;
+
     public Transform detectorPos;
     public Transform playerPos;
    
@@ -14,7 +16,12 @@ public class MoveCamera : MonoBehaviour
 
     private bool wannaMakeLvl = true;
 
-    //public Quaternion q;
+    public AudioSource song;
+
+    private void Start() {
+        startQuaternion = transform.rotation;
+        //song = GetComponent<AudioSource>();
+    }
 
     
     
@@ -25,6 +32,8 @@ public class MoveCamera : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Return)){
             wannaMakeLvl = false;
+            song.Play();
+            
         }  
         if (!wannaMakeLvl){
             offsetX = 10;
@@ -34,4 +43,7 @@ public class MoveCamera : MonoBehaviour
             
         }
     }
+
+
+    
 }
