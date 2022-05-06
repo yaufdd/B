@@ -8,8 +8,10 @@ public class MovePlayer : MonoBehaviour
     private float playerSpeed;
     [SerializeField]
     private float slideSpeed;
-
     private bool go;
+
+
+    public Rigidbody rb;
 
     
     void Update()
@@ -24,12 +26,7 @@ public class MovePlayer : MonoBehaviour
     }
 
     private void PlayerMovement(){
-
-        float slideSpeed = Input.GetAxis("Vertical");
-
-        transform.Translate(new Vector3(playerSpeed, 0, slideSpeed) * Time.deltaTime);
-        
-        
-
+        float direction = Input.GetAxis("Mouse X"); 
+        rb.velocity = new Vector3(playerSpeed, 0, slideSpeed *  -direction);
     }
 }
