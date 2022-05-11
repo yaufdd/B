@@ -3,48 +3,50 @@ using System.Collections;
 
 public class test : MonoBehaviour
 {
-        //Song beats per minute
-    //This is determined by the song you're trying to sync up to
-    public float songBpm;
-
-    //The number of seconds for each song beat
+    public AudioSource song;
+    public float songposition;
+    public float songPosInBeats;
     public float secPerBeat;
+    public float dsptimesong;
+    public int bpm;
+    public int cubeAmount;
 
-    //Current song position, in seconds
-    public float songPosition;
+    float[] notes;
 
-    //Current song position, in beats
-    public float songPositionInBeats;
+    int nextIndex = 0;
+    public float BeatsShownInAdvance;
 
-    //How many seconds have passed since the song started
-    public float dspSongTime;
 
-    //an AudioSource attached to this GameObject that will play the music.
-    public AudioSource musicSource;
+    private void Start() {
+        secPerBeat = 60f / bpm;
 
-    void Start()
-    {
-        //Load the AudioSource attached to the Conductor GameObject
-        musicSource = GetComponent<AudioSource>();
+        dsptimesong = (float) AudioSettings.dspTime;
 
-        //Calculate the number of seconds in each beat
-        secPerBeat = 60f / songBpm;
+        song.Play();
+        float[] notes = new float[cubeAmount];
+        Debug.Log(notes.Length);
+        
 
-        //Record the time when the music starts
-        dspSongTime = (float)AudioSettings.dspTime;
-
-        //Start the music
-        musicSource.Play();
     }
 
-    void Update()
-{
-    //determine how many seconds since the song started
-    songPosition = (float)(AudioSettings.dspTime - dspSongTime);
+    private void Update() {
+        songposition = (float) (AudioSettings.dspTime - dsptimesong);
 
-    //determine how many beats since the song started
-    songPositionInBeats = songPosition / secPerBeat;
-}
+        songPosInBeats = songposition / secPerBeat;
+
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.E)){
+            NotesPosition(songPosInBeats);
+            nextIndex++;
+        }
+        
+    }
+
+    private void NotesPosition(float notePos){
+        for (int i = 0; i < notes.Length; i++){
+            notes[i] = notePos;
+        }
+    }
+
 
 
 }

@@ -27,7 +27,6 @@ public class MovePlayer : MonoBehaviour
         }
         if (go){
             PlayerMovement();
-            Debug.Log(slideSpeed);
         }
     }
 

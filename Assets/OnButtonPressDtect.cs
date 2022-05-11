@@ -23,16 +23,16 @@ public class OnButtonPressDtect : MonoBehaviour
     {
 
         if (Input.GetKeyDown(KeyCode.Q)){
-            Debug.Log($" Q position {Qdetector.position}");
             Instantiate(cude, new Vector3(Qdetector.position.x + offsetX, Qdetector.position.y + 8f, Qdetector.position.z), Quaternion.identity);
+         
         }
          if (Input.GetKeyDown(KeyCode.W)){
-            Debug.Log($" W position {Wdetector.position}");
-            Instantiate(cude, new Vector3(Wdetector.position.x, Wdetector.position.y + 8f, Wdetector.position.z), Quaternion.identity);
+            Instantiate(cude, new Vector3(Wdetector.position.x + offsetX, Wdetector.position.y + 8f, Wdetector.position.z), Quaternion.identity);
+   
         }
          if (Input.GetKeyDown(KeyCode.E)){
-            Debug.Log($" E position {Edetector.position}");
-            Instantiate(cude, new Vector3(Edetector.position.x, Edetector.position.y + 8f, Edetector.position.z), Quaternion.identity);
+            Instantiate(cude, new Vector3(Edetector.position.x + offsetX, Edetector.position.y + 8f, Edetector.position.z), Quaternion.identity);
+
         }
         
     }

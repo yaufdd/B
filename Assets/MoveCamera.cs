@@ -18,6 +18,11 @@ public class MoveCamera : MonoBehaviour
 
     public AudioSource song;
 
+    public Vector3 followPlayerPos;
+    public Vector3 followplayerRot;
+    
+    
+
     private void Start() {
         startQuaternion = transform.rotation;
         //song = GetComponent<AudioSource>();
@@ -29,6 +34,7 @@ public class MoveCamera : MonoBehaviour
     {
         if (wannaMakeLvl){
             transform.position = new Vector3(detectorPos.position.x + offsetX, detectorPos.position.y + offsetY, detectorPos.position.z);
+            transform.rotation = Quaternion.Euler(90, 90, 0);
         }
         if (Input.GetKeyDown(KeyCode.Return)){
             wannaMakeLvl = false;
@@ -37,8 +43,9 @@ public class MoveCamera : MonoBehaviour
         }  
         if (!wannaMakeLvl){
             offsetX = 10;
-            transform.position =  new Vector3(playerPos.position.x + offsetX, playerPos.position.y + offsetY, playerPos.position.z);
-            //transform.rotation = q;
+            transform.position =  new Vector3(playerPos.position.x + (-13), playerPos.position.y + 10, playerPos.position.z);
+            transform.rotation = Quaternion.Euler(followplayerRot);
+            
             
             
         }
