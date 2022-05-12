@@ -21,13 +21,13 @@ public class MovePlayer : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKey(KeyCode.Return)){
-            go = true;
-            //transform.position = startPosition;
-        }
-        if (go){
-            PlayerMovement();
-        }
+        // if (Input.GetKey(KeyCode.Return)){
+        //     go = true;
+        //     //transform.position = startPosition;
+        // }
+        // if (go){
+        //     PlayerMovement();
+        // }
     }
 
     private void PlayerMovement(){

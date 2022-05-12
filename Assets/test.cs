@@ -3,49 +3,64 @@ using System.Collections;
 
 public class test : MonoBehaviour
 {
-    public AudioSource song;
-    public float songposition;
+    //public AudioSource gameOnSong;
+
+    [SerializeField]
+    private int bpm;
+    [SerializeField]
+    private int BeatsShownInAdvance = 10;
+    public Transform playerPos;
+
+    public MusicManager musicManager;
+  
+
+    public float songPosition;
     public float songPosInBeats;
     public float secPerBeat;
     public float dsptimesong;
-    public int bpm;
-    public int cubeAmount;
 
-    float[] notes;
+    public CubeParameters note;
 
-    int nextIndex = 0;
-    public float BeatsShownInAdvance;
+    
+
+
+
 
 
     private void Start() {
         secPerBeat = 60f / bpm;
 
         dsptimesong = (float) AudioSettings.dspTime;
-
-        song.Play();
-        float[] notes = new float[cubeAmount];
-        Debug.Log(notes.Length);
+        //gameOnSong = GetComponent<AudioSource>();
+       
+          
         
 
     }
 
     private void Update() {
-        songposition = (float) (AudioSettings.dspTime - dsptimesong);
-
-        songPosInBeats = songposition / secPerBeat;
-
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.E)){
-            NotesPosition(songPosInBeats);
-            nextIndex++;
+         songPosition = (float) (AudioSettings.dspTime - dsptimesong);
+         songPosInBeats = songPosition / secPerBeat;
+         
+        if (musicManager.playSong){
+            //gameOnSong.Play(); 
+            MoveWithMusic(transform.position, playerPos.transform.position);
         }
         
+            
     }
 
-    private void NotesPosition(float notePos){
-        for (int i = 0; i < notes.Length; i++){
-            notes[i] = notePos;
-        }
+    public void MoveWithMusic(Vector3 SpawnPos, Vector3 RemovePos){
+        transform.position = Vector3.Lerp(
+            SpawnPos,
+            RemovePos,
+            (BeatsShownInAdvance - (note.beatOfThisNote - songPosInBeats)) / BeatsShownInAdvance
+
+        );
     }
+        
+    
+    
 
 
 

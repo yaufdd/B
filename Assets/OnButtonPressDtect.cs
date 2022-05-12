@@ -6,9 +6,18 @@ public class OnButtonPressDtect : MonoBehaviour
 {
     private bool isPressed;
     public GameObject cude;
+
+    public CubeParameters cubeParameter;
+
+    public GameObject parentObject;
+
+    public test songPosInBeats;
     public Transform Qdetector;
     public Transform Wdetector;
     public Transform Edetector;
+
+    private GameObject newCube;
+
 
     [SerializeField] private float offsetX, offsetY;
     
@@ -23,16 +32,22 @@ public class OnButtonPressDtect : MonoBehaviour
     {
 
         if (Input.GetKeyDown(KeyCode.Q)){
-            Instantiate(cude, new Vector3(Qdetector.position.x + offsetX, Qdetector.position.y + 8f, Qdetector.position.z), Quaternion.identity);
-         
+            newCube = Instantiate(cude, new Vector3(Qdetector.position.x + offsetX, Qdetector.position.y + 8f, Qdetector.position.z), Quaternion.identity);
+            newCube.transform.parent = parentObject.transform;
+            cubeParameter.beatOfThisNote = songPosInBeats.songPosInBeats;
+
+            // Debug.Log($"position of song in beats {songPosInBeats.songPosInBeats}");
+            // Debug.Log($"position of cube in beat{cubeParameter.beatOfThisNote}");
         }
          if (Input.GetKeyDown(KeyCode.W)){
-            Instantiate(cude, new Vector3(Wdetector.position.x + offsetX, Wdetector.position.y + 8f, Wdetector.position.z), Quaternion.identity);
-   
+            newCube = Instantiate(cude, new Vector3(Wdetector.position.x + offsetX, Wdetector.position.y + 8f, Wdetector.position.z), Quaternion.identity);
+            newCube.transform.parent = parentObject.transform;
+            cubeParameter.beatOfThisNote = songPosInBeats.songPosInBeats;
         }
          if (Input.GetKeyDown(KeyCode.E)){
-            Instantiate(cude, new Vector3(Edetector.position.x + offsetX, Edetector.position.y + 8f, Edetector.position.z), Quaternion.identity);
-
+            newCube = Instantiate(cude, new Vector3(Edetector.position.x + offsetX, Edetector.position.y + 8f, Edetector.position.z), Quaternion.identity);
+            newCube.transform.parent = parentObject.transform;
+            cubeParameter.beatOfThisNote = songPosInBeats.songPosInBeats;
         }
         
     }
