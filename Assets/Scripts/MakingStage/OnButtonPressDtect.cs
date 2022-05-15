@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class OnButtonPressDtect : MonoBehaviour
 {
-    private bool isPressed;
-    public GameObject cubeQ;
-    public GameObject cubeW;
-    public GameObject cubeE;
+
+    public GameObject cube;
     
 
     public Conductor conductor;
-    public QParameter cubeParameterQ;
-    public WParameter cubeParameterW;
-    public EParameter cubeParameterE;
+    public CubeParameter cubeParameter;
+
 
     public GameObject parentObject;
 
@@ -40,19 +37,22 @@ public class OnButtonPressDtect : MonoBehaviour
     {
 
         if (Input.GetKeyDown(KeyCode.Q)){
-            newCubeQ = Instantiate(cubeQ, new Vector3(Qdetector.position.x + offsetX, Qdetector.position.y + 8f, Qdetector.position.z), Quaternion.identity);
+            newCubeQ = Instantiate(cube, new Vector3(Qdetector.position.x + offsetX, Qdetector.position.y + 8f, Qdetector.position.z), Quaternion.identity);
+            newCubeQ.name = "Q";
             newCubeQ.transform.parent = parentObject.transform;
-            cubeParameterQ.q_beatOfThisNote = conductor.songPosInBeats;
+            cubeParameter.beatsOfThisNote = conductor.songPosInBeats;
         }
          if (Input.GetKeyDown(KeyCode.W)){
-            newCubeW = Instantiate(cubeW, new Vector3(Wdetector.position.x + offsetX, Wdetector.position.y + 8f, Wdetector.position.z), Quaternion.identity);
+            newCubeW = Instantiate(cube, new Vector3(Wdetector.position.x + offsetX, Wdetector.position.y + 8f, Wdetector.position.z), Quaternion.identity);
+            newCubeW.name = "W";
             newCubeW.transform.parent = parentObject.transform;
-            cubeParameterW.w_beatOfThisNote = conductor.songPosInBeats;
+            cubeParameter.beatsOfThisNote = conductor.songPosInBeats;
         }
          if (Input.GetKeyDown(KeyCode.E)){
-            newCubeE = Instantiate(cubeE, new Vector3(Edetector.position.x + offsetX, Edetector.position.y + 8f, Edetector.position.z), Quaternion.identity);
+            newCubeE = Instantiate(cube, new Vector3(Edetector.position.x + offsetX, Edetector.position.y + 8f, Edetector.position.z), Quaternion.identity);
+            newCubeE.name = "E";
             newCubeE.transform.parent = parentObject.transform;
-            cubeParameterE.e_beatOfThisNote =  conductor.songPosInBeats;
+            cubeParameter.beatsOfThisNote = conductor.songPosInBeats;
         }
         
     }

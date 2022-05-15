@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -954,13 +954,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366ade2668c315c4395b7a43658c0b64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubeQ: {fileID: 2112660405182883744, guid: 4e257ea159be35c4db56c4380a250230, type: 3}
-  cubeW: {fileID: 2112660405182883744, guid: 15ab641aeb46ce5409841b993c5a3742, type: 3}
-  cubeE: {fileID: 2112660405182883744, guid: 0292f60f09c0ee549a5e37f977292b00, type: 3}
+  cube: {fileID: 6396957573139227683, guid: 7129565a96db141b7a4652ed65efc01b, type: 3}
   conductor: {fileID: 1060609411}
-  cubeParameterQ: {fileID: -1009045766082550275, guid: 4e257ea159be35c4db56c4380a250230, type: 3}
-  cubeParameterW: {fileID: 7389720224074670804, guid: 15ab641aeb46ce5409841b993c5a3742, type: 3}
-  cubeParameterE: {fileID: 7630766682024604043, guid: 0292f60f09c0ee549a5e37f977292b00, type: 3}
+  cubeParameter: {fileID: 3007297169470737639, guid: 7129565a96db141b7a4652ed65efc01b, type: 3}
   parentObject: {fileID: 966876682}
   Qdetector: {fileID: 1685181545}
   Wdetector: {fileID: 1271825469}

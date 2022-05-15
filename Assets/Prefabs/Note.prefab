@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2112660405182883744
+--- !u!1 &6396957573139227683
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 148539532451776436}
-  - component: {fileID: 7083606669444818226}
-  - component: {fileID: 4834602812163523541}
-  - component: {fileID: 249119289317906629}
-  - component: {fileID: -1009045766082550275}
+  - component: {fileID: 6442468575481638384}
+  - component: {fileID: 5359618445102039431}
+  - component: {fileID: 6339008921870222501}
+  - component: {fileID: 3115713185404726331}
+  - component: {fileID: 3007297169470737639}
+  - component: {fileID: -5812712483129541864}
   m_Layer: 0
-  m_Name: Qcube
-  m_TagString: points
+  m_Name: Note
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &148539532451776436
+--- !u!4 &6442468575481638384
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2112660405182883744}
+  m_GameObject: {fileID: 6396957573139227683}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.890625, y: -3.6625042, z: 7.2159634}
+  m_LocalPosition: {x: -22.036617, y: 1.543808, z: -4.4027863}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7083606669444818226
+--- !u!33 &5359618445102039431
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2112660405182883744}
+  m_GameObject: {fileID: 6396957573139227683}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4834602812163523541
+--- !u!23 &6339008921870222501
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2112660405182883744}
+  m_GameObject: {fileID: 6396957573139227683}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bd636a747494db64ba9fa131369fec0e, type: 2}
+  - {fileID: 2100000, guid: 2eb51dbb5b2794cc08c5822bba287646, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,29 +84,46 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &249119289317906629
+--- !u!65 &3115713185404726331
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2112660405182883744}
+  m_GameObject: {fileID: 6396957573139227683}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-1009045766082550275
+--- !u!114 &3007297169470737639
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2112660405182883744}
+  m_GameObject: {fileID: 6396957573139227683}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d80aaa68db129244ad2719fd0116f44, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b146ab6a8d59484b84da2eec35ffb18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  q_beatOfThisNote: 3.5126843
+  beatsOfThisNote: 64.988464
+--- !u!114 &-5812712483129541864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6396957573139227683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10edb44714520604282ea259c641fdae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conductor: {fileID: 5449983383436808079, guid: 0c61bc005b22c4ff887171a66d29dc6b, type: 3}
+  cubeParameter: {fileID: 3007297169470737639}
+  q_endLerp: {fileID: 9199448578304505137, guid: d9a2b9cb845ed45e2b93e9d1b3cad54f, type: 3}
+  w_endLerp: {fileID: 3416000212510626481, guid: 1648cf1164821491a90cb31b41e804d8, type: 3}
+  e_endLerp: {fileID: 1867544338216705131, guid: 71212700a6c4c400dbac9e6a432b3c20, type: 3}

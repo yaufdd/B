@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4834602812163523541}
   - component: {fileID: 249119289317906629}
   - component: {fileID: 7630766682024604043}
+  - component: {fileID: -7254910748625785568}
+  - component: {fileID: 1815704720096998516}
   m_Layer: 0
   m_Name: Ecube
   m_TagString: points
@@ -108,4 +110,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce96fa168c4099845985c18dc158e7fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  e_beatOfThisNote: 7.2566843
+  e_beatOfThisNote: 64.98841
+--- !u!114 &-7254910748625785568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112660405182883744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10edb44714520604282ea259c641fdae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  qParameter: {fileID: -1009045766082550275, guid: 4e257ea159be35c4db56c4380a250230, type: 3}
+  wParameter: {fileID: 0}
+  eParameter: {fileID: 7630766682024604043}
+  conductor: {fileID: 5449983383436808079, guid: 0c61bc005b22c4ff887171a66d29dc6b, type: 3}
+--- !u!114 &1815704720096998516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112660405182883744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b146ab6a8d59484b84da2eec35ffb18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatsOfThisNote: 0
