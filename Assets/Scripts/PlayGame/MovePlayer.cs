@@ -21,18 +21,12 @@ public class MovePlayer : MonoBehaviour
     
     void Update()
     {
-        // if (Input.GetKey(KeyCode.Return)){
-        //     go = true;
-        //     //transform.position = startPosition;
-        // }
-        // if (go){
-        //     PlayerMovement();
-        // }
+        PlayerMovement();
     }
 
     private void PlayerMovement(){
         float direction = Input.GetAxis("Mouse X"); 
-        rb.velocity = new Vector3(playerSpeed, 0, slideSpeed *  -direction);
+        rb.velocity = new Vector3(0, 0, slideSpeed *  -direction);
     }
 
 

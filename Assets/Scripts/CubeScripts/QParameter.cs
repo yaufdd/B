@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CubeParameters : MonoBehaviour
+public class QParameter : MonoBehaviour
 {
-    public float beatOfThisNote;
+    
+    public float q_beatOfThisNote;
 
     
 }

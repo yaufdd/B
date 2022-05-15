@@ -55,6 +55,16 @@ public class MoveCamera : MonoBehaviour
         }
     }
 
+    public void MakingLvlCamera(){
+        transform.position = new Vector3(detectorPos.position.x + offsetX, detectorPos.position.y + offsetY, detectorPos.position.z);
+        transform.rotation = Quaternion.Euler(90, 90, 0);
+    }
+
+    public void PlayingLvlCamera(){
+        transform.position =  new Vector3(playerPos.position.x + (-13), playerPos.position.y + 10   , playerPos.position.z);
+        transform.rotation = Quaternion.Euler(-71, 12, -3);
+    }
+
 
     
 }
