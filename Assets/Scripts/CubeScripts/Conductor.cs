@@ -13,6 +13,7 @@ public class Conductor : MonoBehaviour
     public float songPosInBeats;
     public float secPerBeat;
     public float dsptimesong;
+    public float beatOfThisNote;
 
     void Start()
     {
@@ -26,5 +27,6 @@ public class Conductor : MonoBehaviour
     {
         songPosition = (float) (AudioSettings.dspTime - dsptimesong);
         songPosInBeats = songPosition / secPerBeat;
+        beatOfThisNote = songPosInBeats;
     }
 }

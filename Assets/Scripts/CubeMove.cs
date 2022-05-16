@@ -1,65 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CubeMove : MonoBehaviour
 {
-
-
     public Conductor conductor;
-    public CubeParameter cubeParameter;
+    public AudioClip music;
 
-    private Vector3 startLerp;
+    public Vector3 removePos;
 
-    public Transform q_endLerp;
-    public Transform w_endLerp;
-    public Transform e_endLerp;
-
-    private float koef;
-
+    public GameManager gameManager;
+    
+    // Start is called before the first frame update
     void Start()
     {
-        startLerp = transform.position;
+        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        koef = ((conductor.BeatsShownInAdvance - (cubeParameter.beatsOfThisNote - conductor.songPosInBeats)) / conductor.BeatsShownInAdvance);
-        Debug.Log($"{koef} = {conductor.BeatsShownInAdvance} - ({cubeParameter.beatsOfThisNote} - {conductor.songPosInBeats}) / {conductor.BeatsShownInAdvance}");
-
-        if (SceneManager.GetActiveScene().name == "PlayScene")
-        {
-            if (gameObject.name == "Q")
-            {
-                MoveWithMusic(startLerp, q_endLerp.position, cubeParameter, "q");
-
-            }
-            if (gameObject.name == "W")
-            {
-                MoveWithMusic(startLerp, w_endLerp.position, cubeParameter, "w");
-
-            }
-            if (gameObject.name == "E")
-            {
-                MoveWithMusic(startLerp, e_endLerp.position, cubeParameter, "e");
-               
-
-            }
-
+    private void Update() {
+        for (int i = 0;i < gameManager.notes.Count; i++){
+            Vector3 spawnPos = new Vector3(PlayerPrefs.GetFloat($"{music.name}_{i}_position_x"),
+                                            PlayerPrefs.GetFloat($"{music.name}_{i}_position_y"),
+                                            PlayerPrefs.GetFloat($"{music.name}_{i}_position_z"));
+            gameManager.notes[i].transform.position = Vector3.Lerp(spawnPos, 
+            removePos, 
+            (conductor.BeatsShownInAdvance - (PlayerPrefs.GetFloat($"{music.name}_{i}") - conductor.songPosInBeats)) / conductor.BeatsShownInAdvance);
         }
-        
-        
     }
 
-    public void MoveWithMusic(Vector3 spawnPos, Vector3 removePos, CubeParameter current_cube, string letter)
-    {
-         transform.position = Vector3.Lerp(
-         spawnPos,
-         removePos,
-         (conductor.BeatsShownInAdvance - (current_cube.beatsOfThisNote - conductor.songPosInBeats)) / conductor.BeatsShownInAdvance);
-         Debug.Log(letter);
-        
-    }
+    // private void MoveWithMusic(Vector3 spawnPos, Vector3 removePos, int numberOfNote){
+    //     transform.position = Vector3.Lerp(
+    //     spawnPos,
+    //     removePos,
+    //     (conductor.BeatsShownInAdvance - (PlayerPrefs.GetFloat($"{music.name}_{numberOfNote}") - conductor.songPosInBeats)) / conductor.BeatsShownInAdvance
+    // );    
+    // }
 }

@@ -5,9 +5,15 @@ using UnityEngine;
 public class SaveNotes : MonoBehaviour
 {
     private int numberOfNote;
-    public AudioSource music;
+    public int amountOfNote;
+
+    public AudioClip music;
+
+    public Conductor conductor;
 
     public GameObject cube;
+
+    
 
     public CubeParameter cubeParameter;
 
@@ -35,34 +41,56 @@ public class SaveNotes : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q)){
             numberOfNote++;
+            amountOfNote = numberOfNote;
             Vector3 potencial_Q_note_pos = new Vector3(Qdetector.position.x + offsetX, Qdetector.position.y + 8f, Qdetector.position.z);
-            SaveNotePosition($"{music.name}_{numberOfNote}", potencial_Q_note_pos.x, potencial_Q_note_pos.y, potencial_Q_note_pos.z);
+            SaveNotePotencialPos($"{music.name}_{numberOfNote}_position", potencial_Q_note_pos.x, potencial_Q_note_pos.y, potencial_Q_note_pos.z);
+            SaveBeatOfNote($"{music.name}_{numberOfNote}_beatsOfNote", conductor.beatOfThisNote);
             Instantiate(cube, potencial_Q_note_pos, Quaternion.identity);
+  
 
         }
          if (Input.GetKeyDown(KeyCode.W)){
             numberOfNote++;
+            amountOfNote = numberOfNote;
             Vector3 potencial_W_note_pos = new Vector3(Wdetector.position.x + offsetX, Wdetector.position.y + 8f, Wdetector.position.z);
-            SaveNotePosition($"{music.name}_{numberOfNote}", potencial_W_note_pos.x, potencial_W_note_pos.y, potencial_W_note_pos.z);
+            SaveNotePotencialPos($"{music.name}_{numberOfNote}_position", potencial_W_note_pos.x, potencial_W_note_pos.y, potencial_W_note_pos.z);
+            SaveBeatOfNote($"{music.name}_{numberOfNote}_beatsOfNote", conductor.beatOfThisNote);
             Instantiate(cube, potencial_W_note_pos, Quaternion.identity);
+
 
         }
          if (Input.GetKeyDown(KeyCode.E)){
             numberOfNote++;
+            amountOfNote = numberOfNote;
             Vector3 potencial_E_note_pos = new Vector3(Edetector.position.x + offsetX, Edetector.position.y + 8f, Edetector.position.z);
-            SaveNotePosition($"{music.name}_{numberOfNote}", potencial_E_note_pos.x, potencial_E_note_pos.y, potencial_E_note_pos.z);
+            SaveNotePotencialPos($"{music.name}_{numberOfNote}_position", potencial_E_note_pos.x, potencial_E_note_pos.y, potencial_E_note_pos.z);
+            SaveBeatOfNote($"{music.name}_{numberOfNote}_beatsOfNote", conductor.beatOfThisNote);
             Instantiate(cube, potencial_E_note_pos, Quaternion.identity);
-
+ 
         }
         
     }
 
-    private void SaveNotePosition(string note_info, float x, float y, float z)
+    private void SaveNotePotencialPos(string note_info, float x, float y, float z)
     {
         PlayerPrefs.SetFloat($"{note_info}_x", x);
         PlayerPrefs.SetFloat($"{note_info}_y", y);
         PlayerPrefs.SetFloat($"{note_info}_z", z);
         PlayerPrefs.Save();
         Debug.Log($"{note_info}_x_y_z was saved successfully");
+    }
+    private void SaveBeatOfNote(string note_info, float beatsOfNote){
+        PlayerPrefs.SetFloat($"{note_info}", beatsOfNote);
+        Debug.Log($"{beatsOfNote} is saved");
+    }
+
+    public  void SaveAmountOfSongNotes(){
+        PlayerPrefs.SetInt($"{music.name}_AmountOfNotes", amountOfNote);
+        Debug.Log($"Amount = {amountOfNote} saved");
+    }
+
+    public void DeleteAllData(){
+        PlayerPrefs.DeleteAll();
+        Debug.Log("Data reest");
     }
 }
