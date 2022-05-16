@@ -954,9 +954,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366ade2668c315c4395b7a43658c0b64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  music: {fileID: 1295748217}
   cube: {fileID: 6396957573139227683, guid: 7129565a96db141b7a4652ed65efc01b, type: 3}
-  conductor: {fileID: 1060609411}
-  cubeParameter: {fileID: -4674997056574082307, guid: 7129565a96db141b7a4652ed65efc01b, type: 3}
+  cubeParameter: {fileID: 0}
   parentObject: {fileID: 966876682}
   Qdetector: {fileID: 1685181545}
   Wdetector: {fileID: 1271825469}

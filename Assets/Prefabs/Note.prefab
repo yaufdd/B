@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 5359618445102039431}
   - component: {fileID: 6339008921870222501}
   - component: {fileID: 3115713185404726331}
-  - component: {fileID: -4674997056574082307}
-  - component: {fileID: -8276618691238900449}
   m_Layer: 0
   m_Name: Note
   m_TagString: Untagged
@@ -97,34 +95,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-4674997056574082307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6396957573139227683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b146ab6a8d59484b84da2eec35ffb18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beatsOfThisNote: 0
-  cube: {fileID: 11400000, guid: 7b7bcc39fc72a400088587655189f221, type: 2}
---- !u!114 &-8276618691238900449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6396957573139227683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10edb44714520604282ea259c641fdae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  conductor: {fileID: 0}
-  cubeParameter: {fileID: -4674997056574082307}
-  q_endLerp: {fileID: 0}
-  w_endLerp: {fileID: 0}
-  e_endLerp: {fileID: 0}
