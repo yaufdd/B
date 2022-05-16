@@ -734,7 +734,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295748216}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d75ffdf5e466d94cad815080e5561b9, type: 3}
   m_Name: 
@@ -1356,6 +1356,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5449983383436808079, guid: 0c61bc005b22c4ff887171a66d29dc6b, type: 3}
+      propertyPath: bpm
+      value: 130
+      objectReference: {fileID: 0}
     - target: {fileID: 6319451636903779370, guid: 0c61bc005b22c4ff887171a66d29dc6b, type: 3}
       propertyPath: m_Name
       value: Conductor

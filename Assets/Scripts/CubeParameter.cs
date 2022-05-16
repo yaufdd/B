@@ -5,4 +5,6 @@ using UnityEngine;
 public class CubeParameter : MonoBehaviour
 {
     public float beatsOfThisNote;
+
+    public Cube cube;
 }

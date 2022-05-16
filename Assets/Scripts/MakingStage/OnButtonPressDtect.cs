@@ -6,11 +6,9 @@ public class OnButtonPressDtect : MonoBehaviour
 {
 
     public GameObject cube;
-    
 
     public Conductor conductor;
     public CubeParameter cubeParameter;
-
 
     public GameObject parentObject;
 
@@ -41,6 +39,7 @@ public class OnButtonPressDtect : MonoBehaviour
             newCubeQ.name = "Q";
             newCubeQ.transform.parent = parentObject.transform;
             cubeParameter.beatsOfThisNote = conductor.songPosInBeats;
+            
         }
          if (Input.GetKeyDown(KeyCode.W)){
             newCubeW = Instantiate(cube, new Vector3(Wdetector.position.x + offsetX, Wdetector.position.y + 8f, Wdetector.position.z), Quaternion.identity);

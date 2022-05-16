@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5359618445102039431}
   - component: {fileID: 6339008921870222501}
   - component: {fileID: 3115713185404726331}
-  - component: {fileID: 3007297169470737639}
-  - component: {fileID: -5812712483129541864}
+  - component: {fileID: -4674997056574082307}
+  - component: {fileID: -8276618691238900449}
   m_Layer: 0
   m_Name: Note
   m_TagString: Untagged
@@ -97,7 +97,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3007297169470737639
+--- !u!114 &-4674997056574082307
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,8 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b146ab6a8d59484b84da2eec35ffb18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatsOfThisNote: 64.988464
---- !u!114 &-5812712483129541864
+  beatsOfThisNote: 0
+  cube: {fileID: 11400000, guid: 7b7bcc39fc72a400088587655189f221, type: 2}
+--- !u!114 &-8276618691238900449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,8 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10edb44714520604282ea259c641fdae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conductor: {fileID: 5449983383436808079, guid: 0c61bc005b22c4ff887171a66d29dc6b, type: 3}
-  cubeParameter: {fileID: 3007297169470737639}
-  q_endLerp: {fileID: 9199448578304505137, guid: d9a2b9cb845ed45e2b93e9d1b3cad54f, type: 3}
-  w_endLerp: {fileID: 3416000212510626481, guid: 1648cf1164821491a90cb31b41e804d8, type: 3}
-  e_endLerp: {fileID: 1867544338216705131, guid: 71212700a6c4c400dbac9e6a432b3c20, type: 3}
+  conductor: {fileID: 0}
+  cubeParameter: {fileID: -4674997056574082307}
+  q_endLerp: {fileID: 0}
+  w_endLerp: {fileID: 0}
+  e_endLerp: {fileID: 0}

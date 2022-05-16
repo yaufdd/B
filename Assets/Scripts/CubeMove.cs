@@ -16,6 +16,7 @@ public class CubeMove : MonoBehaviour
     public Transform w_endLerp;
     public Transform e_endLerp;
 
+    private float koef;
 
     void Start()
     {
@@ -25,6 +26,9 @@ public class CubeMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        koef = ((conductor.BeatsShownInAdvance - (cubeParameter.beatsOfThisNote - conductor.songPosInBeats)) / conductor.BeatsShownInAdvance);
+        Debug.Log($"{koef} = {conductor.BeatsShownInAdvance} - ({cubeParameter.beatsOfThisNote} - {conductor.songPosInBeats}) / {conductor.BeatsShownInAdvance}");
+
         if (SceneManager.GetActiveScene().name == "PlayScene")
         {
             if (gameObject.name == "Q")
@@ -40,6 +44,7 @@ public class CubeMove : MonoBehaviour
             if (gameObject.name == "E")
             {
                 MoveWithMusic(startLerp, e_endLerp.position, cubeParameter, "e");
+               
 
             }
 

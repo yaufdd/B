@@ -956,7 +956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cube: {fileID: 6396957573139227683, guid: 7129565a96db141b7a4652ed65efc01b, type: 3}
   conductor: {fileID: 1060609411}
-  cubeParameter: {fileID: 3007297169470737639, guid: 7129565a96db141b7a4652ed65efc01b, type: 3}
+  cubeParameter: {fileID: -4674997056574082307, guid: 7129565a96db141b7a4652ed65efc01b, type: 3}
   parentObject: {fileID: 966876682}
   Qdetector: {fileID: 1685181545}
   Wdetector: {fileID: 1271825469}
@@ -1136,7 +1136,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 130
   BeatsShownInAdvance: 10
-  endLerpingPosition: {x: 0, y: 0, z: 0}
   songPosition: 0
   songPosInBeats: 0
   secPerBeat: 0
@@ -1502,7 +1501,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 130
   BeatsShownInAdvance: 10
-  endLerpingPosition: {x: 0, y: 0, z: 0}
   songPosition: 0
   songPosInBeats: 0
   secPerBeat: 0
