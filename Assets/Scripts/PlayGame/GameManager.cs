@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     public SaveNotes saveNotes;
     public AudioClip song;
 
+    public Transform rightPos, middlePos, leftPos;
+    
+
     public List<GameObject> notes = new List<GameObject>();
    
     public GameObject notePrefab;
@@ -15,18 +18,33 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private Vector3 spawnPos;
+
+
+
     void Start()
     {
   
-        Debug.Log(PlayerPrefs.GetInt($"{song.name}_AmountOfNotes"));
+        //Debug.Log(PlayerPrefs.GetInt($"{song.name}_AmountOfNotes"));
        for (int i = 1;i < PlayerPrefs.GetInt($"{song.name}_AmountOfNotes");i++){
            Vector3 newNotePos =  new Vector3(PlayerPrefs.GetFloat($"{song.name}_{i}_position_x"), 
                                             PlayerPrefs.GetFloat($"{song.name}_{i}_position_y"), 
                                             PlayerPrefs.GetFloat($"{song.name}_{i}_position_z"));
 
            newNote = Instantiate(notePrefab, newNotePos, Quaternion.identity);
-           newNote.name = $"{i}";
-           notes.Add(newNote);
+           if (newNote.transform.position.z == middlePos.position.z)
+           {
+                newNote.name = $"{i}W";
+           }
+           if (newNote.transform.position.z == rightPos.position.z)
+           {
+                newNote.name = $"{i}Q";
+           }
+           if(newNote.transform.position.z == leftPos.position.z)
+           {
+                newNote.name = $"{i}E";
+           }
+           
+          
            
            
        }

@@ -8,29 +8,57 @@ public class CubeMove : MonoBehaviour
     public Conductor conductor;
     public AudioClip music;
 
-    public Vector3 spawnPos;
-    public Vector3 removePos;
+    private Vector3 spawnPos;
+
+    [SerializeField]
+    private Vector3 removePos_Q;
+    [SerializeField]
+    private Vector3 removePos_W;
+    [SerializeField]
+    private Vector3 removePos_E;
+
+    private char noteLastLetter;
 
     //public GameManager gameManager;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         spawnPos = transform.position;
+        noteLastLetter = gameObject.name[gameObject.name.Length - 1];
+
+
+        Debug.Log($"{music.name}_{gameObject.name}_beatsOfNote");
+        Debug.Log(PlayerPrefs.GetFloat($"{music.name}_{gameObject.name}_beatsOfNote"));
     }
 
     private void Update() {
         if (SceneManager.GetActiveScene().name == "PlayScene")
         {
-            MoveWithMusic();
+            if (noteLastLetter == 'W')
+            {
+                MoveWithMusic(removePos_W);
+                
+            }
+            if (noteLastLetter == 'Q')
+            {
+                MoveWithMusic(removePos_Q);
+                //Debug.Log($"{music.name}_{gameObject.name}_beatsOfNote");
+            }
+            if (noteLastLetter == 'E')
+            {
+                MoveWithMusic(removePos_E);
+                //Debug.Log($"{music.name}_{gameObject.name}_beatsOfNote");
+            }
+            
         }
     }
 
-    private void MoveWithMusic()
+    private void MoveWithMusic(Vector3 removePos)
     {
         transform.position =  Vector3.Lerp(
             spawnPos,
             removePos,
-            (conductor.BeatsShownInAdvance - (PlayerPrefs.GetFloat($"{music.name}_{transform.name}_beatsOfNote") - conductor.songPosInBeats)) / conductor.BeatsShownInAdvance);
+            (conductor.BeatsShownInAdvance - (PlayerPrefs.GetFloat($"{music.name}_{gameObject.name}_beatsOfNote") - conductor.songPosInBeats)) / conductor.BeatsShownInAdvance);
     }
 }

@@ -32,9 +32,9 @@ public class MovePlayer : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) {
 
-        if (other.gameObject.tag == "points"){
+        
              Destroy(other.gameObject);
-        }
+        
        
     }
 }
