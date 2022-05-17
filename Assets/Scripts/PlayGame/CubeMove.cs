@@ -10,13 +10,10 @@ public class CubeMove : MonoBehaviour
 
     private Vector3 spawnPos;
 
-    [SerializeField]
-    private Vector3 removePos_Q;
-    [SerializeField]
-    private Vector3 removePos_W;
-    [SerializeField]
-    private Vector3 removePos_E;
+   
 
+    [SerializeField] private Vector3 removePos_Q, removePos_W, removePos_E;
+    
     private char noteLastLetter;
 
     //public GameManager gameManager;

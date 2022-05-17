@@ -4,44 +4,44 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public SaveNotes saveNotes;
+   // public SaveNotes saveNotes;
     public AudioClip song;
 
-    public Transform rightPos, middlePos, leftPos;
+    public Transform QPos, WPos, EPos;
     
-
-    public List<GameObject> notes = new List<GameObject>();
    
     public GameObject notePrefab;
     private GameObject newNote;
 
 
-    [SerializeField]
-    private Vector3 spawnPos;
+
 
 
 
     void Start()
     {
-  
+         Debug.Log(QPos.position.z);
+         Debug.Log(WPos.position.z);
+         Debug.Log(EPos.position.z);
+
         //Debug.Log(PlayerPrefs.GetInt($"{song.name}_AmountOfNotes"));
        for (int i = 1;i < PlayerPrefs.GetInt($"{song.name}_AmountOfNotes");i++){
            Vector3 newNotePos =  new Vector3(PlayerPrefs.GetFloat($"{song.name}_{i}_position_x"), 
                                             PlayerPrefs.GetFloat($"{song.name}_{i}_position_y"), 
                                             PlayerPrefs.GetFloat($"{song.name}_{i}_position_z"));
 
-           newNote = Instantiate(notePrefab, newNotePos, Quaternion.identity);
-           if (newNote.transform.position.z == middlePos.position.z)
+           newNote = Instantiate(notePrefab, newNotePos, Quaternion.identity);           
+           if (newNote.transform.position.z == QPos.position.z)
            {
-                newNote.name = $"{i}W";
+               newNote.name = $"{i}Q";
            }
-           if (newNote.transform.position.z == rightPos.position.z)
+           if (newNote.transform.position.z == WPos.position.z)
            {
-                newNote.name = $"{i}Q";
+               newNote.name = $"{i}W";
            }
-           if(newNote.transform.position.z == leftPos.position.z)
+           if (newNote.transform.position.z == EPos.position.z)
            {
-                newNote.name = $"{i}E";
+               newNote.name = $"{i}E";
            }
            
           

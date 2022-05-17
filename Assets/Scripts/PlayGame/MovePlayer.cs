@@ -8,14 +8,12 @@ public class MovePlayer : MonoBehaviour
     private float playerSpeed;
     [SerializeField]
     private float slideSpeed;
-    private bool go;
-
-    private Vector3 startPosition;
+    
 
 
     public Rigidbody rb;
     private void Start() {
-        startPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        Cursor.visible = false;
     }
 
     
