@@ -7,7 +7,7 @@ public class Conductor : MonoBehaviour
     [SerializeField]
     private int bpm;
     
-    public int BeatsShownInAdvance = 10;
+    public int BeatsShownInAdvance;
 
     public float songPosition;
     public float songPosInBeats;
