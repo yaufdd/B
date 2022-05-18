@@ -20,9 +20,9 @@ public class GameManager : MonoBehaviour
 
         //Debug.Log(PlayerPrefs.GetInt($"{song.name}_AmountOfNotes"));
        for (int i = 1;i < PlayerPrefs.GetInt($"{song.name}_AmountOfNotes");i++){
-           Vector3 newNotePos =  new Vector3(PlayerPrefs.GetFloat($"{song.name}_{i}_position_x"), 
-                                            PlayerPrefs.GetFloat($"{song.name}_{i}_position_y"), 
-                                            PlayerPrefs.GetFloat($"{song.name}_{i}_position_z"));
+           Vector3 newNotePos =  new Vector3(PlayerPrefs.GetFloat($"{PlayerPrefs.GetString("song_name")}_{i}_position_x"), 
+                                            PlayerPrefs.GetFloat($"{PlayerPrefs.GetString("song_name")}_{i}_position_y"), 
+                                            PlayerPrefs.GetFloat($"{PlayerPrefs.GetString("song_name")}_{i}_position_z"));
 
            newNote = Instantiate(notePrefab, newNotePos, Quaternion.identity);
  

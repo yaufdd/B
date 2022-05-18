@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Conductor : MonoBehaviour
 {
-    [SerializeField]
-    private int bpm;
+    
+    public int bpm;
     
     public int BeatsShownInAdvance;
 
