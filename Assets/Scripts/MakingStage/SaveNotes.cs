@@ -7,7 +7,7 @@ public class SaveNotes : MonoBehaviour
     private int numberOfNote;
     public int amountOfNote;
 
-    public AudioClip music;
+    public AudioSource music;
 
 
     public Conductor conductor;
@@ -40,8 +40,8 @@ public class SaveNotes : MonoBehaviour
             numberOfNote++;
             amountOfNote = numberOfNote;
             Vector3 potencial_Q_note_pos = new Vector3(Qdetector.position.x, Qdetector.position.y, Qdetector.position.z);
-            SaveNotePotencialPos($"{music.name}_{numberOfNote}_position", potencial_Q_note_pos.x, potencial_Q_note_pos.y, potencial_Q_note_pos.z);
-            SaveBeatOfNote($"{music.name}_{numberOfNote}Q_beatsOfNote", conductor.beatOfThisNote);
+            SaveNotePotencialPos($"{music.clip.name}_{numberOfNote}_position", potencial_Q_note_pos.x, potencial_Q_note_pos.y, potencial_Q_note_pos.z);
+            SaveBeatOfNote($"{music.clip.name}_{numberOfNote}Q_beatsOfNote", conductor.beatOfThisNote);
             Instantiate(cube, potencial_Q_note_pos, Quaternion.identity);
   
 
@@ -50,8 +50,8 @@ public class SaveNotes : MonoBehaviour
             numberOfNote++;
             amountOfNote = numberOfNote;
             Vector3 potencial_W_note_pos = new Vector3(Wdetector.position.x, Wdetector.position.y, Wdetector.position.z);
-            SaveNotePotencialPos($"{music.name}_{numberOfNote}_position", potencial_W_note_pos.x, potencial_W_note_pos.y, potencial_W_note_pos.z);
-            SaveBeatOfNote($"{music.name}_{numberOfNote}W_beatsOfNote", conductor.beatOfThisNote);
+            SaveNotePotencialPos($"{music.clip.name}_{numberOfNote}_position", potencial_W_note_pos.x, potencial_W_note_pos.y, potencial_W_note_pos.z);
+            SaveBeatOfNote($"{music.clip.name}_{numberOfNote}W_beatsOfNote", conductor.beatOfThisNote);
             Instantiate(cube, potencial_W_note_pos, Quaternion.identity);
 
 
@@ -60,8 +60,8 @@ public class SaveNotes : MonoBehaviour
             numberOfNote++;
             amountOfNote = numberOfNote;
             Vector3 potencial_E_note_pos = new Vector3(Edetector.position.x, Edetector.position.y, Edetector.position.z);
-            SaveNotePotencialPos($"{music.name}_{numberOfNote}_position", potencial_E_note_pos.x, potencial_E_note_pos.y, potencial_E_note_pos.z);
-            SaveBeatOfNote($"{music.name}_{numberOfNote}E_beatsOfNote", conductor.beatOfThisNote);
+            SaveNotePotencialPos($"{music.clip.name}_{numberOfNote}_position", potencial_E_note_pos.x, potencial_E_note_pos.y, potencial_E_note_pos.z);
+            SaveBeatOfNote($"{music.clip.name}_{numberOfNote}E_beatsOfNote", conductor.beatOfThisNote);
             Instantiate(cube, potencial_E_note_pos, Quaternion.identity);
  
         }
@@ -82,7 +82,7 @@ public class SaveNotes : MonoBehaviour
     }
 
     public  void SaveAmountOfSongNotes(){
-        PlayerPrefs.SetInt($"{music.name}_AmountOfNotes", amountOfNote);
+        PlayerPrefs.SetInt($"{music.clip.name}_AmountOfNotes", amountOfNote);
         Debug.Log($"Amount = {amountOfNote} saved");
     }
 
