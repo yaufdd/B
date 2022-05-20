@@ -16,4 +16,16 @@ public class SceneManagement : MonoBehaviour
     public void SetBpm(int bpm){
         conductor.bpm = bpm;
     }
+
+    public void GoChooseSong(){
+        SceneManager.LoadScene("ChooseSong");
+    }
+
+    public void GoMakeStage(){
+        SceneManager.LoadScene("MakeStage");
+    }
+
+    public void GoMainMenu(){
+        SceneManager.LoadScene("StartMenu");    
+    }
 }

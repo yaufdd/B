@@ -4,43 +4,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-   // public SaveNotes saveNotes;
-    public AudioClip song;
+    private bool pause;
 
-    public Transform middle;
-    
-   
-    public GameObject notePrefab;
-    private GameObject newNote;
-
-
-    void Start()
-    {
-         
-
-        //Debug.Log(PlayerPrefs.GetInt($"{song.name}_AmountOfNotes"));
-       for (int i = 1;i < PlayerPrefs.GetInt($"{song.name}_AmountOfNotes");i++){
-           Vector3 newNotePos =  new Vector3(PlayerPrefs.GetFloat($"{PlayerPrefs.GetString("song_name")}_{i}_position_x"), 
-                                            PlayerPrefs.GetFloat($"{PlayerPrefs.GetString("song_name")}_{i}_position_y"), 
-                                            PlayerPrefs.GetFloat($"{PlayerPrefs.GetString("song_name")}_{i}_position_z"));
-
-           newNote = Instantiate(notePrefab, newNotePos, Quaternion.identity);
- 
-           if (newNote.transform.position.z > middle.position.z)
-           {
-               newNote.name = $"{i}Q";
-           }
-           if (newNote.transform.position.z == middle.position.z)
-           {
-               newNote.name = $"{i}W";
-           }
-           if (newNote.transform.position.z < middle.position.z)
-           {
-               newNote.name = $"{i}E";
-           }
-      
-       }
-       
+    private void Start() {
+        pause = false;
+    }
+    private void Update() {
+        if (Input.GetKey(KeyCode.Escape)){
+            pause = !pause;   
+        }
+        if (!pause){
+            Time.timeScale = 1;
+        }
+        else{
+            Time.timeScale = 0;
+        }
     }
     
 }

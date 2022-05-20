@@ -25,8 +25,8 @@ public class CubeMove : MonoBehaviour
         noteLastLetter = gameObject.name[gameObject.name.Length - 1];
 
 
-        Debug.Log($"{music.name}_{gameObject.name}_beatsOfNote");
-        Debug.Log(PlayerPrefs.GetFloat($"{music.name}_{gameObject.name}_beatsOfNote"));
+        // Debug.Log($"{music.name}_{gameObject.name}_beatsOfNote");
+        // Debug.Log(PlayerPrefs.GetFloat($"{music.name}_{gameObject.name}_beatsOfNote"));
     }
 
     private void Update() {

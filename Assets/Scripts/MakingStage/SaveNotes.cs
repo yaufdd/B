@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class SaveNotes : MonoBehaviour
 {
     private int numberOfNote;
@@ -30,6 +30,8 @@ public class SaveNotes : MonoBehaviour
     {
         //PlayerPrefs.DeleteAll();
         numberOfNote = 0;
+        
+       
     }
 
     // Update is called once per frame
@@ -73,21 +75,52 @@ public class SaveNotes : MonoBehaviour
         PlayerPrefs.SetFloat($"{note_info}_x", x);
         PlayerPrefs.SetFloat($"{note_info}_y", y);
         PlayerPrefs.SetFloat($"{note_info}_z", z);
-        PlayerPrefs.Save();
-        Debug.Log($"{note_info}_x_y_z was saved successfully");
+        //Debug.Log($"{note_info}_x_y_z was saved successfully");
     }
     private void SaveBeatOfNote(string note_info, float beatsOfNote){
         PlayerPrefs.SetFloat($"{note_info}", beatsOfNote);
-        Debug.Log($"{beatsOfNote} is saved");
+        //Debug.Log($"{beatsOfNote} is saved");
     }
 
     public  void SaveAmountOfSongNotes(){
         PlayerPrefs.SetInt($"{music.clip.name}_AmountOfNotes", amountOfNote);
-        Debug.Log($"Amount = {amountOfNote} saved");
+        PlayerPrefs.Save();
+        // Time.timeScale = 0;
+        // music.Stop();
+        //Debug.Log($"Amount = {amountOfNote} saved");
     }
 
-    public void DeleteAllData(){
+    
+    public void RecordstageAgain(){
+        Refresh();
+        SceneManager.LoadScene("MakeStage");
+        
+    }
+
+
+    private void Refresh(){
+        for (int i = 1; i < amountOfNote ; i++){
+            PlayerPrefs.DeleteKey($"{music.clip.name}_{i}_position_x");
+            PlayerPrefs.DeleteKey($"{music.clip.name}_{i}_position_y"); 
+            PlayerPrefs.DeleteKey($"{music.clip.name}_{i}_position_z");
+            Debug.Log(PlayerPrefs.HasKey($"{music.clip.name}_{i}_position_x)"));
+            Debug.Log(PlayerPrefs.HasKey($"{music.clip.name}_{i}_position_y)"));
+            Debug.Log(PlayerPrefs.HasKey($"{music.clip.name}_{i}_position_z)"));
+            PlayerPrefs.DeleteKey($"{music.clip.name}_{i}Q_beatsOfNote");
+            PlayerPrefs.DeleteKey($"{music.clip.name}_{i}W_beatsOfNote");
+            PlayerPrefs.DeleteKey($"{music.clip.name}_{i}E_beatsOfNote");
+
+            
+            //PlayerPrefs.DeleteKey($"{music.clip.name}_{i}_position_x");
+
+        }
+        
+        //PlayerPrefs.DeleteKey($"{music.clip.name}_{14}_position_x");
+        //Debug.Log(PlayerPrefs.GetFloat($"{music.clip.name}_{i}_position_x"));
+    }
+
+    public void DeleteAll(){
         PlayerPrefs.DeleteAll();
-        Debug.Log("Data reest");
+        
     }
 }
