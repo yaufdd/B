@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &21170125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,9 +154,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Sh boom life could be a dream
-    song: {fileID: 8300000, guid: 6281995394411ff45b1cc349720e9234, type: 3}
+    clip: {fileID: 8300000, guid: 6281995394411ff45b1cc349720e9234, type: 3}
     volume: 1
-    pitch: 0.354
+    pitch: 1
+    source: {fileID: 0}
+  - name: Hotline Bling
+    clip: {fileID: 8300000, guid: e193e7e0235a0704f96e78b362c9287a, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Bad guy
+    clip: {fileID: 8300000, guid: 28b89d31ac9f348d1a8872012a732341, type: 3}
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
 --- !u!4 &21170126
 Transform:
@@ -245,7 +255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2854ef524059e724d8b4b7b5c4787e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  song: {fileID: 1295748217}
   middle: {fileID: 49682865}
   notePrefab: {fileID: 6396957573139227683, guid: 7129565a96db141b7a4652ed65efc01b, type: 3}
 --- !u!1 &705507993
@@ -710,7 +719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1295748217
 AudioSource:
   m_ObjectHideFlags: 0
@@ -718,10 +727,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295748216}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6281995394411ff45b1cc349720e9234, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e193e7e0235a0704f96e78b362c9287a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.544
   m_Pitch: 1

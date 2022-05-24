@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 public class CubeMove : MonoBehaviour
 {
     public Conductor conductor;
-    public AudioClip music;
+    public AudioClip[] songs;
+    //public AudioClip[] clips;
 
     private Vector3 spawnPos;
+
+    private string current_song_name;
 
    
 
@@ -21,9 +24,16 @@ public class CubeMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        current_song_name = PlayerPrefs.GetString("song_name");
+;
         spawnPos = transform.position;
         noteLastLetter = gameObject.name[gameObject.name.Length - 1];
 
+        
+        //for (int i = 0;i < clips.Length; i++)
+        //{
+        //    if (clips[i].name == PlayerPrefs.GetString)
+        //}
 
         // Debug.Log($"{music.name}_{gameObject.name}_beatsOfNote");
         // Debug.Log(PlayerPrefs.GetFloat($"{music.name}_{gameObject.name}_beatsOfNote"));
@@ -56,6 +66,6 @@ public class CubeMove : MonoBehaviour
         transform.position =  Vector3.Lerp(
             spawnPos,
             removePos,
-            (conductor.BeatsShownInAdvance - (PlayerPrefs.GetFloat($"{music.name}_{gameObject.name}_beatsOfNote") - conductor.songPosInBeats)) / conductor.BeatsShownInAdvance);
+            (conductor.BeatsShownInAdvance - (PlayerPrefs.GetFloat($"{current_song_name}_{gameObject.name}_beatOfNote") - conductor.songPosInBeats)) / conductor.BeatsShownInAdvance);
     }
 }

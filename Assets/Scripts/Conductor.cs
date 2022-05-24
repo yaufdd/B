@@ -17,6 +17,8 @@ public class Conductor : MonoBehaviour
 
     void Start()
     {
+        bpm = PlayerPrefs.GetInt("current_bpm");
+        Debug.Log(bpm);
 
         secPerBeat = 60f / bpm;
 

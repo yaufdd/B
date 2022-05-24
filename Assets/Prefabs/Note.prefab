@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conductor: {fileID: 3668525026504798982}
-  music: {fileID: 8300000, guid: 6281995394411ff45b1cc349720e9234, type: 3}
+  song: {fileID: 8300000, guid: 6281995394411ff45b1cc349720e9234, type: 3}
   removePos_Q: {x: 5, y: 1, z: 2.228072}
   removePos_W: {x: 5, y: 1, z: 0.00807178}
   removePos_E: {x: 5, y: 1, z: -2.53}
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58a8819a56f54a84abb03d523d41096f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 130
+  bpm: 135
   BeatsShownInAdvance: 35
   songPosition: 0
   songPosInBeats: 0

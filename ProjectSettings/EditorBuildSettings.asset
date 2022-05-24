@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/ChooseSong.unity
     guid: 7982e57d8da04754d8e22a9a50b045c3
   - enabled: 1
-    path: Assets/Scenes/Menu/StartMenu.unity
+    path: Assets/Scenes/Menu/PlayOrCreateNew.unity
     guid: d9165ef2a60878c4ba1e23b12d751e37
   m_configObjects: {}
