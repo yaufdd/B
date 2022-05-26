@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class CubeMove : MonoBehaviour
 {
     public Conductor conductor;
@@ -13,12 +14,17 @@ public class CubeMove : MonoBehaviour
 
     private string current_song_name;
 
+    public bool pointFail;
    
 
     [SerializeField] private Vector3 removePos_Q, removePos_W, removePos_E;
     
     private char noteLastLetter;
 
+
+    public GameObject cross;
+
+    
     //public GameManager gameManager;
 
     // Start is called before the first frame update
@@ -59,6 +65,7 @@ public class CubeMove : MonoBehaviour
             }
             
         }
+      
     }
 
     private void MoveWithMusic(Vector3 removePos)
@@ -67,5 +74,14 @@ public class CubeMove : MonoBehaviour
             spawnPos,
             removePos,
             (conductor.BeatsShownInAdvance - (PlayerPrefs.GetFloat($"{current_song_name}_{gameObject.name}_beatOfNote") - conductor.songPosInBeats)) / conductor.BeatsShownInAdvance);
+        if (transform.position.x == removePos.x){
+            Destroy(transform.gameObject);
+            Vector3 cross_spawn = new Vector3(removePos.x, removePos.y + 0.7f, removePos.z);
+            GameObject cross_clone = (GameObject) Instantiate(cross, cross_spawn, Quaternion.Euler(30f, 90f, 45));
+            FindObjectOfType<AudioManager>().PlaySound("Fail");
+            Destroy(cross_clone, 0.25f);
+
+           
+        }
     }
 }

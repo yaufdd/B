@@ -24,10 +24,9 @@ public class SpawnStage : MonoBehaviour
     {
         string current_song_name = PlayerPrefs.GetString("song_name");
 
-        Debug.Log(current_song_name);
+
 
         bool test = PlayerPrefs.HasKey($"{current_song_name}_AmountOfNotes");
-        Debug.Log(test);
         
 
    
@@ -43,7 +42,7 @@ public class SpawnStage : MonoBehaviour
            
 
             Vector3 newNotePos =  new Vector3(PlayerPrefs.GetFloat(x), PlayerPrefs.GetFloat(y), PlayerPrefs.GetFloat(z));
-            Debug.Log($"{newNotePos.x}-x/{newNotePos.y}-y/{newNotePos.z}-z");
+  
 
            newNote = Instantiate(notePrefab, newNotePos, Quaternion.identity);
  
@@ -64,27 +63,6 @@ public class SpawnStage : MonoBehaviour
        
     }
 
-    //private void Update() {
-    //    if (Input.GetKeyDown(KeyCode.Escape)){
-    //        if (GameIsPaused){
-    //            Resume();
-    //        }
-    //        else{
-    //            Pause();
-    //        }
-    //    }
-    //}
-
-    //public void Resume(){
-    //    GameIsPaused = false;
-    //    Time.timeScale = 1;
-    //    song.UnPause();
-
-    //}
-    //public void Pause(){
-    //    GameIsPaused = true;
-    //    Time.timeScale = 0;
-    //    song.Pause();
-    //}
+   
     
 }

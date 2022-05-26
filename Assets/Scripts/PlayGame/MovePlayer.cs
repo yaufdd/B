@@ -9,17 +9,22 @@ public class MovePlayer : MonoBehaviour
     [SerializeField]
     private float slideSpeed;
     
+    public int points;
 
+    private Animator animator;
 
     public Rigidbody rb;
     private void Start() {
         Cursor.visible = false;
+        points = 0;
+
     }
 
     
     void Update()
     {
         PlayerMovement();
+ 
     }
 
     private void PlayerMovement(){
@@ -31,8 +36,15 @@ public class MovePlayer : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
 
         
-             Destroy(other.gameObject);
-        
-       
+        Destroy(other.gameObject);
+        points ++;
+        FindObjectOfType<AudioManager>().PlaySound("Slice");
+
+        // animator.SetBool("hit", true);
+     
     }
+
+    // private void OnCollisionExit(Collision other) {
+    //     animator.SetBool("hit", true);
+    // }
 }

@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
+
+    public bool audioIsPlaying;
     // Start is called before the first frame update
     void Awake()
     {
@@ -19,14 +21,37 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    public void Play(string name)
+    public void PlayMusic(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
     }
 
+    public void PlaySound(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source.PlayOneShot(s.source.clip);
+    }
+
+    public void AudioIsPlayingCheck(string name){
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        if (s.source.isPlaying){
+            audioIsPlaying = true;
+        }
+        else{
+            audioIsPlaying = false;
+        }
+        
+    }
+
     private void Start()
     {
-        Play(PlayerPrefs.GetString("song_name"));
+        PlayMusic(PlayerPrefs.GetString("song_name"));
+        audioIsPlaying = true;
     }
-}
+
+    private void Update() {
+        AudioIsPlayingCheck(PlayerPrefs.GetString("song_name"));
+    }
+}   
