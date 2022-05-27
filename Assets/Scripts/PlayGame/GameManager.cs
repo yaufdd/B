@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     public AudioManager audioManager;
 
-    public bool win;
+    public bool win, lose;
 
     private bool gameRsultAudio;
 
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
         pause = false;
         gameRsultAudio = false;
         win = false;
+        lose  = false;
         
     }
     private void Update() {
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
         if (!audioManager.audioIsPlaying){
             GameResult();
             if(!gameRsultAudio){
-            AudioGameResult();
+                AudioGameResult();
             }   
         }
 
@@ -70,7 +71,7 @@ public class GameManager : MonoBehaviour
         }
         else{
             loseMesh.gameObject.SetActive(true);
-            win = false;
+            lose = true;
         }
 
         

@@ -10,32 +10,40 @@ public class AnimnationManager : MonoBehaviour
 
     public AudioManager audioManager;
 
+    private int slice_count;
+
     private void Start() {
         animator = GetComponent<Animator>();
 
+        slice_count = 1;
+
     }
     
-    private void FixedUpdate() {
-        animator.SetBool("Slice", false);
+    private void Update() {
+        //animator.ResetTrigger("Slice");
 
         if (!audioManager.audioIsPlaying){
             if (gameManager.win){
                 animator.SetBool("Win", true);
-                Debug.Log("win");
+                Debug.Log(gameManager.win);
             }
-            else{
+            if (gameManager.lose){
                 animator.SetBool("Lose", true);
-                Debug.Log("Lose");
+                Debug.Log(gameManager.lose);
             }
+           
         }
+
+        
 
         
     }
 
     private void OnCollisionEnter(Collision other) {
-      
-        animator.SetBool("Slice", true);
+        animator.SetTrigger("Slice");
     }
+
+    
 
     
 }

@@ -112,9 +112,9 @@ MonoBehaviour:
   conductor: {fileID: 3668525026504798982}
   songs: []
   pointFail: 0
-  removePos_Q: {x: 5, y: 1, z: 2.228072}
-  removePos_W: {x: 5, y: 1, z: 0.00807178}
-  removePos_E: {x: 5, y: 1, z: -2.53}
+  removePos_Q: {x: 3, y: 1, z: 2.228072}
+  removePos_W: {x: 3, y: 1, z: 0.00807178}
+  removePos_E: {x: 3, y: 1, z: -2.53}
   cross: {fileID: 8045045579768660437, guid: 3b8eb78f73a22864bafc26c8e065551d, type: 3}
 --- !u!114 &3668525026504798982
 MonoBehaviour:

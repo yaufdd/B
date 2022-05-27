@@ -7,7 +7,6 @@ public class SaveNotes : MonoBehaviour
     private int numberOfNote;
     public int amountOfNote;
 
-    public AudioSource music;
 
 
     public Conductor conductor;
@@ -33,6 +32,8 @@ public class SaveNotes : MonoBehaviour
         numberOfNote = 0;
 
         current_song_name = PlayerPrefs.GetString("song_name");
+
+        FindObjectOfType<AudioManager>().PlayMusic(current_song_name);
 
         Refresh();
 

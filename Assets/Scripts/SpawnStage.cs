@@ -44,7 +44,7 @@ public class SpawnStage : MonoBehaviour
             Vector3 newNotePos =  new Vector3(PlayerPrefs.GetFloat(x), PlayerPrefs.GetFloat(y), PlayerPrefs.GetFloat(z));
   
 
-           newNote = Instantiate(notePrefab, newNotePos, Quaternion.identity);
+           newNote = Instantiate(notePrefab, newNotePos, Quaternion.Euler(0, 90, 0));
  
            if (newNote.transform.position.z > middle.position.z)
            {

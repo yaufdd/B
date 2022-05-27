@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 public class CubeMove : MonoBehaviour
 {
     public Conductor conductor;
-    public AudioClip[] songs;
-    //public AudioClip[] clips;
 
     private Vector3 spawnPos;
 
@@ -24,6 +22,7 @@ public class CubeMove : MonoBehaviour
 
     public GameObject cross;
 
+    Animator animator;
     
     //public GameManager gameManager;
 
@@ -34,6 +33,8 @@ public class CubeMove : MonoBehaviour
 ;
         spawnPos = transform.position;
         noteLastLetter = gameObject.name[gameObject.name.Length - 1];
+
+        animator = GetComponent<Animator>();
 
         
         //for (int i = 0;i < clips.Length; i++)
@@ -75,6 +76,8 @@ public class CubeMove : MonoBehaviour
             removePos,
             (conductor.BeatsShownInAdvance - (PlayerPrefs.GetFloat($"{current_song_name}_{gameObject.name}_beatOfNote") - conductor.songPosInBeats)) / conductor.BeatsShownInAdvance);
         if (transform.position.x == removePos.x){
+            Debug.Log("hit");
+            animator.SetBool("CubeSlice", true);
             Destroy(transform.gameObject);
             Vector3 cross_spawn = new Vector3(removePos.x, removePos.y + 0.7f, removePos.z);
             GameObject cross_clone = (GameObject) Instantiate(cross, cross_spawn, Quaternion.Euler(30f, 90f, 45));

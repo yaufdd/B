@@ -14,20 +14,28 @@ public class MovePlayer : MonoBehaviour
     private Animator animator;
 
     public Rigidbody rb;
+
+
     private void Start() {
         Cursor.visible = false;
         points = 0;
 
+        transform.position = transform.position;
+        slideSpeed = 0;
+
     }
 
     
-    void Update()
+
+    
+    void FixedUpdate()
     {
         PlayerMovement();
  
     }
 
     private void PlayerMovement(){
+        slideSpeed = 10;
         float direction = Input.GetAxis("Mouse X"); 
         rb.velocity = new Vector3(0, 0, slideSpeed *  -direction);
     }
@@ -39,12 +47,11 @@ public class MovePlayer : MonoBehaviour
         Destroy(other.gameObject);
         points ++;
         FindObjectOfType<AudioManager>().PlaySound("Slice");
+        
 
-        // animator.SetBool("hit", true);
+        
      
     }
 
-    // private void OnCollisionExit(Collision other) {
-    //     animator.SetBool("hit", true);
-    // }
+    
 }
