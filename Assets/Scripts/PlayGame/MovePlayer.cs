@@ -15,6 +15,8 @@ public class MovePlayer : MonoBehaviour
 
     public Rigidbody rb;
 
+    public GameObject slicedCube;
+
 
     private void Start() {
         Cursor.visible = false;
@@ -45,8 +47,11 @@ public class MovePlayer : MonoBehaviour
 
         
         Destroy(other.gameObject);
+        GameObject  destroySliced = (GameObject) Instantiate(slicedCube, other.transform.position, Quaternion.Euler(0, 90, 0));
+        Destroy(destroySliced, 0.5f);
         points ++;
-        FindObjectOfType<AudioManager>().PlaySound("Slice");
+       
+        
         
 
         

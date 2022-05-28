@@ -69,6 +69,11 @@ public class CubeMove : MonoBehaviour
       
     }
 
+    private void OnCollisionEnter(Collision other) {
+        animator.SetBool("CubeSlice", true);
+        Destroy(this, 0.5f);
+    }
+
     private void MoveWithMusic(Vector3 removePos)
     {
         transform.position =  Vector3.Lerp(
@@ -77,7 +82,7 @@ public class CubeMove : MonoBehaviour
             (conductor.BeatsShownInAdvance - (PlayerPrefs.GetFloat($"{current_song_name}_{gameObject.name}_beatOfNote") - conductor.songPosInBeats)) / conductor.BeatsShownInAdvance);
         if (transform.position.x == removePos.x){
             Debug.Log("hit");
-            animator.SetBool("CubeSlice", true);
+            
             Destroy(transform.gameObject);
             Vector3 cross_spawn = new Vector3(removePos.x, removePos.y + 0.7f, removePos.z);
             GameObject cross_clone = (GameObject) Instantiate(cross, cross_spawn, Quaternion.Euler(30f, 90f, 45));

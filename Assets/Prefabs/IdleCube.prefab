@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 1782727621544621981}
   - component: {fileID: -6753000631376495069}
   m_Layer: 0
-  m_Name: MainCubePivot (1)
+  m_Name: IdleCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
