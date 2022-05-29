@@ -15,10 +15,14 @@ public class Conductor : MonoBehaviour
     public float dsptimesong;
     public float beatOfThisNote;
 
+    public float current_song_pos;
+
     void Start()
     {
         bpm = PlayerPrefs.GetInt("current_bpm");
-        Debug.Log(bpm);
+        BeatsShownInAdvance = 35;
+
+        Debug.Log($"{bpm} = bpm");
 
         secPerBeat = 60f / bpm;
 
@@ -27,6 +31,7 @@ public class Conductor : MonoBehaviour
 
     void Update()
     {
+        current_song_pos = (float)AudioSettings.dspTime;
         songPosition = (float) (AudioSettings.dspTime - dsptimesong);
         songPosInBeats = songPosition / secPerBeat;
         beatOfThisNote = songPosInBeats;

@@ -7,7 +7,7 @@ public class SceneManagement : MonoBehaviour
 {
     public Conductor conductor;
      public void LoadStage(string song_name){
-        SceneManager.LoadScene("PlayOrCreateNew");
+        SceneManager.LoadScene("PlayScene");
 
         PlayerPrefs.SetString("song_name", song_name);
         
@@ -15,7 +15,6 @@ public class SceneManagement : MonoBehaviour
     }
     public void SetBpm(int bpm){
         PlayerPrefs.SetInt("current_bpm", bpm);
-        Debug.Log(PlayerPrefs.GetInt("current_bpm"));
     }
 
     public void GoChooseSong(){

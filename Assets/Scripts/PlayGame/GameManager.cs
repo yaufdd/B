@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class GameManager : MonoBehaviour
     public Canvas canvas;
 
     public TextMeshProUGUI winMesh, loseMesh;
+
+    public GameObject resultPanel; 
     
 
     public AudioManager audioManager;
@@ -21,14 +24,19 @@ public class GameManager : MonoBehaviour
 
     private bool gameRsultAudio;
 
+    public float result_persentage;
+
     
     
 
     private void Start() {
         current_song_name = PlayerPrefs.GetString("song_name");
 
+        
+
         winMesh.gameObject.SetActive(false);
         loseMesh.gameObject.SetActive(false);
+        resultPanel.SetActive(false);
 
         pause = false;
         gameRsultAudio = false;
@@ -61,13 +69,12 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void GameResult(){      
-
-        if (movePlayer.points >= (PlayerPrefs.GetInt($"{current_song_name}_AmountOfNotes") / 2)){
-            winMesh.gameObject.SetActive(true);   
+    private void GameResult(){ 
+        result_persentage = (movePlayer.points * 100) / (PlayerPrefs.GetInt($"{current_song_name}_AmountOfNotes"));  
+        if (movePlayer.points >= (float)(PlayerPrefs.GetInt($"{current_song_name}_AmountOfNotes")) * 0.7f){
+            winMesh.gameObject.SetActive(true); 
             win = true;        
-            
-            
+
         }
         else{
             loseMesh.gameObject.SetActive(true);
@@ -89,4 +96,11 @@ public class GameManager : MonoBehaviour
         
     }
     
+    public void ResultPanel(){
+        Cursor.visible = true;
+
+        resultPanel.SetActive(true);
+
+    
+    }
 }

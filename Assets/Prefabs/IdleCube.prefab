@@ -134,6 +134,7 @@ MonoBehaviour:
   removePos_Q: {x: 3, y: 1, z: 2.228072}
   removePos_W: {x: 3, y: 1, z: 0.00807178}
   removePos_E: {x: 3, y: 1, z: -2.53}
+  beatOfThisNote: 0
   cross: {fileID: 8045045579768660437, guid: 3b8eb78f73a22864bafc26c8e065551d, type: 3}
 --- !u!114 &1782727621544621981
 MonoBehaviour:
@@ -147,13 +148,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58a8819a56f54a84abb03d523d41096f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 135
-  BeatsShownInAdvance: 35
+  bpm: 0
+  BeatsShownInAdvance: 0
   songPosition: 0
   songPosInBeats: 0
   secPerBeat: 0
   dsptimesong: 0
   beatOfThisNote: 0
+  current_song_pos: 0
 --- !u!65 &-6753000631376495069
 BoxCollider:
   m_ObjectHideFlags: 0

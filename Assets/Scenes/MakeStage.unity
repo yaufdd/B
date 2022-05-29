@@ -735,6 +735,7 @@ MonoBehaviour:
   loseMesh: {fileID: 0}
   audioManager: {fileID: 0}
   win: 0
+  lose: 0
 --- !u!4 &633921039
 Transform:
   m_ObjectHideFlags: 0
@@ -1805,7 +1806,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amountOfNote: 0
   conductor: {fileID: 1060609411}
-  cube: {fileID: 7983396203286107503, guid: fbddaccf7fe3e2841a0c9247c401accd, type: 3}
+  cube: {fileID: 6396957573139227683, guid: 7129565a96db141b7a4652ed65efc01b, type: 3}
   Qdetector: {fileID: 1591630160}
   Wdetector: {fileID: 1832257854}
   Edetector: {fileID: 425773109}

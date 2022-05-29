@@ -17,6 +17,12 @@ public class MovePlayer : MonoBehaviour
 
     public GameObject slicedCube;
 
+    public CubeMove cubeMove;
+
+    public GameManager gameManager;
+
+    
+
 
     private void Start() {
         Cursor.visible = false;
@@ -25,14 +31,19 @@ public class MovePlayer : MonoBehaviour
         transform.position = transform.position;
         slideSpeed = 0;
 
+       
+
     }
 
     
 
     
-    void FixedUpdate()
+    void Update()
     {
+        
         PlayerMovement();
+        
+
  
     }
 

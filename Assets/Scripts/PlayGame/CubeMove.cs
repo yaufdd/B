@@ -14,19 +14,20 @@ public class CubeMove : MonoBehaviour
 
     public bool pointFail;
    
-
     [SerializeField] private Vector3 removePos_Q, removePos_W, removePos_E;
+
+    [SerializeField] private float beatOfThisNote;
     
     private char noteLastLetter;
-
 
     public GameObject cross;
 
     Animator animator;
-    
-    //public GameManager gameManager;
 
-    // Start is called before the first frame update
+    [SerializeField]
+    private float  dspTimeWithOutLag;
+    private float secPerBeatWithOutLag;
+    
     void Start()
     {
         current_song_name = PlayerPrefs.GetString("song_name");
@@ -36,60 +37,49 @@ public class CubeMove : MonoBehaviour
 
         animator = GetComponent<Animator>();
 
-        
-        //for (int i = 0;i < clips.Length; i++)
-        //{
-        //    if (clips[i].name == PlayerPrefs.GetString)
-        //}
 
-        // Debug.Log($"{music.name}_{gameObject.name}_beatsOfNote");
-        // Debug.Log(PlayerPrefs.GetFloat($"{music.name}_{gameObject.name}_beatsOfNote"));
+
+        dspTimeWithOutLag = PlayerPrefs.GetFloat("dsptime");
+        secPerBeatWithOutLag = 60f / PlayerPrefs.GetInt("current_bpm") ;
+
     }
 
     private void Update() {
         if (SceneManager.GetActiveScene().name == "PlayScene")
         {
+            float songPosWithOutLag =  (float)(AudioSettings.dspTime - dspTimeWithOutLag);
+            float songPosInBeatsWithOutLag = songPosWithOutLag /secPerBeatWithOutLag;
             if (noteLastLetter == 'W')
             {
-                MoveWithMusic(removePos_W);
-                
+                MoveWithMusic(removePos_W, songPosInBeatsWithOutLag);               
             }
             if (noteLastLetter == 'Q')
             {
-                MoveWithMusic(removePos_Q);
-                //Debug.Log($"{music.name}_{gameObject.name}_beatsOfNote");
+                MoveWithMusic(removePos_Q, songPosInBeatsWithOutLag);
             }
             if (noteLastLetter == 'E')
             {
-                MoveWithMusic(removePos_E);
-                //Debug.Log($"{music.name}_{gameObject.name}_beatsOfNote");
-            }
-            
-        }
-      
+                MoveWithMusic(removePos_E, songPosInBeatsWithOutLag);
+            }           
+        }      
     }
 
-    private void OnCollisionEnter(Collision other) {
-        animator.SetBool("CubeSlice", true);
-        Destroy(this, 0.5f);
-    }
-
-    private void MoveWithMusic(Vector3 removePos)
+    private void MoveWithMusic(Vector3 removePos, float songPosInBeats_parameter)
     {
+        
+
+
         transform.position =  Vector3.Lerp(
             spawnPos,
             removePos,
-            (conductor.BeatsShownInAdvance - (PlayerPrefs.GetFloat($"{current_song_name}_{gameObject.name}_beatOfNote") - conductor.songPosInBeats)) / conductor.BeatsShownInAdvance);
+            (conductor.BeatsShownInAdvance - (PlayerPrefs.GetFloat($"{current_song_name}_{gameObject.name}_beatOfNote") - songPosInBeats_parameter)) / conductor.BeatsShownInAdvance);
         if (transform.position.x == removePos.x){
-            Debug.Log("hit");
-            
+
             Destroy(transform.gameObject);
             Vector3 cross_spawn = new Vector3(removePos.x, removePos.y + 0.7f, removePos.z);
             GameObject cross_clone = (GameObject) Instantiate(cross, cross_spawn, Quaternion.Euler(30f, 90f, 45));
             FindObjectOfType<AudioManager>().PlaySound("Fail");
             Destroy(cross_clone, 0.25f);
-
-           
         }
     }
 }
